@@ -1,60 +1,38 @@
-import React, { Component } from 'react';
-import { Card, CardGroup } from 'react-bootstrap';
-import TitleFunct from './TitleFunct';
-import { FirstCard, SecondCard, ThirdCard } from './Card';
-export default class App extends Component {
-	render() {
-		return(
-			
-			<div className="text-center">
-				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-				<script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-				<script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
-				<script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
-				<script>var Alert = ReactBootstrap.Alert;</script>
+import img1 from '../src/assets/logo_react.svg'
+import img2 from '../src/assets/angular.png'
+import img3 from '../src/assets/vuejs.jpg'
+import CreateCard from './component/CreateCard';
+import './App.css';
 
-				<TitleFunct a={"Testing "} b={"Bootstrap on React"} />
-
-					<CardGroup>
-					<Card>
-						<Card.Img variant="top" src="https://www.datocms-assets.com/45470/1631110818-logo-react-js.png" />
-						<Card.Body>
-							<Card.Title><FirstCard></FirstCard></Card.Title>
-							<Card.Text>
-
-							</Card.Text>
-						</Card.Body>
-						<Card.Footer>
-							<small className="text-muted">Last updated 3 mins ago</small>
-						</Card.Footer>
-					</Card>
-
-					<Card>
-						<Card.Img variant="top" src="https://www.softfluent.fr/wp-content/uploads/2019/10/angularjs-600x315.png" />
-						<Card.Body>
-							<Card.Title><SecondCard></SecondCard></Card.Title>
-							<Card.Text>
-
-							</Card.Text>
-						</Card.Body>
-						<Card.Footer>
-							<small className="text-muted">Last updated 3 mins ago</small>
-						</Card.Footer>
-					</Card>
-					<Card>
-						<Card.Img variant="top" src="https://positivethinking.tech/wp-content/uploads/2021/01/Logo-Vuejs.png" />
-						<Card.Body>
-							<Card.Title><ThirdCard></ThirdCard></Card.Title>
-							<Card.Text>
-
-							</Card.Text>
-						</Card.Body>
-						<Card.Footer>
-							<small className="text-muted">Last updated 3 mins ago</small>
-						</Card.Footer>
-					</Card>
-				</CardGroup>
-			</div>
-		)
-	}
+function App() {
+	const cards = [
+    {
+		title: "REACT JS",
+		img: img1,
+		text: "React (aussi appelé React.js ou ReactJS) est une bibliothèque JavaScript libre développée par Facebook depuis 2013. Le but principal de cette bibliothèque est de faciliter la création d'application web monopage, via la création de composants dépendant d'un état et générant une page (ou portion) HTML à chaque changement d'état."
+    },
+	{
+		title: "ANGULAR JS",
+		img: img2,
+		text: "AngularJS est un framework JavaScript libre et open source développé par Google. Il permet de développer des pages web. AngularJS est fondé sur l'idée que la programmation déclarative doit être utilisée pour construire les interfaces utilisateurs et les composants logiciels de câblage, tandis que la programmation impérative excelle pour exprimer la logique métier"
+	},
+	{
+		title: "VUE JS",
+		img: img3,
+		text: "Vue.js est un framework JavaScript open-source utilisé pour construire des interfaces utilisateur et des applications web monopages. Vue a été créé par Evan You et est maintenu par lui et le reste des membres actifs de l'équipe principale travaillant sur le projet et son écosystème."
+	},
+	]
+	return (
+		<div className="App">
+			{cards.map((cards) => (
+				<CreateCard 
+					img={cards.img}
+					title={cards.title}
+					text={cards.text}
+				/>
+			))}
+		</div>
+	);
 }
+
+export default App;
