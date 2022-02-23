@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardGroup, Button } from 'react-bootstrap';
 
 
-export default function CreateCard(props) {
+export default function MyCard(props) {
     return (
         <div>
 
